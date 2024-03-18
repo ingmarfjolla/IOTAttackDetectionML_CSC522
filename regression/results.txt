@@ -1,0 +1,20 @@
+##### Regression (2 classes) #####
+accuracy_score:  0.9887310265285038
+recall_score:  0.8869101292438499
+precision_score:  0.8601025764420593
+f1_score:  0.8729979734922448
+
+
+##### Regression (7 classes) #####
+accuracy_score:  0.831209881548266
+recall_score:  0.6089472823563051
+precision_score:  0.4934918084095498
+f1_score:  0.5061135356584298
+
+Testing regression model......
+Returning model predictions......
+##### Regression (34 classes) #####
+accuracy_score:  0.8009481670546522
+recall_score:  0.5657367920968692
+precision_score:  0.47159255295788965
+f1_score:  0.4717293920596467
