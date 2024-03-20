@@ -155,8 +155,8 @@ def read_dataset(dataset,modeltype):
     for file in dataset:
         df = pd.read_csv(DATASET_DIRECTORY + file)
         #if it's a regression, i'd like to keep these as boolean. DNN's don't take bool so left it as float
-        if(modeltype=="regression"):
-            df[protocol_cols] = df[protocol_cols].astype(bool)
+        # if(modeltype=="regression"):
+        #     df[protocol_cols] = df[protocol_cols].astype(bool)
         float_cols = df.select_dtypes(include=['float64']).columns.difference(protocol_cols)
         #float32 makes it use way less memory
         df[float_cols] = df[float_cols].astype('float32')
@@ -177,7 +177,7 @@ def read_dataset(dataset,modeltype):
 
 
     
-    scaler_columns = combined_df.select_dtypes(include=['float32']).columns.difference(protocol_cols + [y_column])
+    scaler_columns = combined_df.select_dtypes(include=['float32']).columns.difference([y_column])
     combined_df[scaler_columns] = scaler.fit_transform(combined_df[scaler_columns])
 
     #############VALIDATING PROCESSING DEBUGGING ####################
