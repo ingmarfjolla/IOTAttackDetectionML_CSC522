@@ -6,4 +6,4 @@
 #BSUB -e stderr.%J
 
 module load conda
-python regression_script.py
+python ../regression/regression_script.py
