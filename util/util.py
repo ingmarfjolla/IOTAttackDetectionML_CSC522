@@ -117,9 +117,19 @@ dict_7classes['DictionaryBruteForce'] = 'BruteForce'
 
 
 # @profile
-def import_dataset(numclasses=34,modeltype="regression"):
+def import_dataset(numclasses=34,modeltype="regression",use_subset=False,subset_frac=1.0):
     print("Importing datasets.....")
-    df_sets = [k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv')]
+    if (use_subset):
+        df_sets_generator = (k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv'))
+        subset_size = int(len(os.listdir(DATASET_DIRECTORY)) * subset_frac)
+        df_sets = []
+        for _ in range(subset_size):
+            try:
+                df_sets.append(next(df_sets_generator))
+            except StopIteration:
+                break
+    else:
+        df_sets = [k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv')]
     df_sets.sort()
     training_sets = df_sets[:int(len(df_sets)*.8)]
     test_sets = df_sets[int(len(df_sets)*.8):]
@@ -152,6 +162,7 @@ def read_dataset(dataset,modeltype):
 
     scaler = StandardScaler()
     dataframes = []
+    count = 0
     for file in dataset:
         df = pd.read_csv(DATASET_DIRECTORY + file)
         #if it's a regression, i'd like to keep these as boolean. DNN's don't take bool so left it as float
@@ -161,10 +172,14 @@ def read_dataset(dataset,modeltype):
         #float32 makes it use way less memory
         df[float_cols] = df[float_cols].astype('float32')
         dataframes.append(df)
+        count += 1
+        
+    
 
     combined_df = pd.concat(dataframes, ignore_index=True)
     del dataframes,float_cols
     gc.collect()
+
 
     
     combined_df[y_column] = combined_df[y_column].astype('category')
@@ -176,15 +191,15 @@ def read_dataset(dataset,modeltype):
 
 
 
+
     
     scaler_columns = combined_df.select_dtypes(include=['float32']).columns.difference([y_column])
+    print(scaler_columns)
     combined_df[scaler_columns] = scaler.fit_transform(combined_df[scaler_columns])
-
     #############VALIDATING PROCESSING DEBUGGING ####################
     # scaled_stats = combined_df[scaler_columns].describe()
     # print(scaled_stats)
     #############VALIDATING PROCESSING DEBUGGING ####################
-
     del scaler_columns
     gc.collect()
     #combined_df[X_columns] = scaler.fit_transform(combined_df[X_columns])
