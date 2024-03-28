@@ -5,5 +5,6 @@
 #BSUB -o stdout.%J
 #BSUB -e stderr.%J
 
-module load conda
+conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_iot
 python ../regression/regression_script.py
+conda deactivate
