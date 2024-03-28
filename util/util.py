@@ -194,7 +194,6 @@ def read_dataset(dataset,modeltype):
 
     
     scaler_columns = combined_df.select_dtypes(include=['float32']).columns.difference([y_column])
-    print(scaler_columns)
     combined_df[scaler_columns] = scaler.fit_transform(combined_df[scaler_columns])
     #############VALIDATING PROCESSING DEBUGGING ####################
     # scaled_stats = combined_df[scaler_columns].describe()
