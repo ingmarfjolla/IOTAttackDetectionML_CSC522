@@ -15,6 +15,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 import sys
 sys.path.append( '../util' )
 import util as util
+from datetime import datetime
 
 
 # # DNN with 2 classes
@@ -64,7 +65,8 @@ y_test_encoded = label_encoder.transform(y_test)
 
 del train,test,y_train,y_test
 
-
+start_time = datetime.now()
+print("Starting model at: ", start_time.strftime("%H:%M"))
 model = create_binary_classification_model(len(util.X_columns))
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 #https://keras.io/api/models/model_training_apis/
@@ -75,6 +77,8 @@ history = model.fit(x=X_train, y=y_train_encoded,
 
 test_loss, test_acc = model.evaluate(X_test, y_test_encoded, verbose=2)
 print(f'Test accuracy: {test_acc}, Test loss: {test_loss}')
+elapsed_time = datetime.now() - start_time
+print("Elapsed time: ", elapsed_time)
 del X_train,X_test,y_train,y_test
 
 
@@ -128,6 +132,8 @@ num_classes = len(label_encoder.classes_)
 print(" Number of classes is:" )
 print(num_classes)
 print("")
+start_time = datetime.now()
+print("Starting model at: ", start_time.strftime("%H:%M"))
 model = create_multiclass_classification_model(len(util.X_columns),num_classes)
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 #https://keras.io/api/models/model_training_apis/
@@ -138,6 +144,8 @@ history = model.fit(x=X_train, y=y_train_encoded,
 
 test_loss, test_acc = model.evaluate(X_test, y_test_encoded, verbose=2)
 print(f'Test accuracy: {test_acc}, Test loss: {test_loss}')
+elapsed_time = datetime.now() - start_time
+print("Elapsed time: ", elapsed_time)
 del X_train,X_test,y_train_encoded,y_test_encoded
 
 
@@ -177,6 +185,8 @@ num_classes = len(label_encoder.classes_)
 print(" Number of classes is:" )
 print(num_classes)
 print("")
+start_time = datetime.now()
+print("Starting model at: ", start_time.strftime("%H:%M"))
 model = create_multiclass_classification_model(len(util.X_columns),num_classes)
 early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 #https://keras.io/api/models/model_training_apis/
@@ -187,6 +197,8 @@ history = model.fit(x=X_train, y=y_train_encoded,
 
 test_loss, test_acc = model.evaluate(X_test, y_test_encoded, verbose=2)
 print(f'Test accuracy: {test_acc}, Test loss: {test_loss}')
+elapsed_time = datetime.now() - start_time
+print("Elapsed time: ", elapsed_time)
 del X_train,X_test
 
 
