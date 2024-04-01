@@ -3,7 +3,7 @@
 #BSUB -W 900
 #BSUB -J IoT_regression
 #BSUB -q gpu
-#BSUB =gpu "num=1:mode=shared:mps=no"
+#BSUB -gpu "num=1:mode=shared:mps=no"
 #BSUB -o dnn_outputs/stdout.%J
 #BSUB -e dnn_outputs/stderr.%J
 
