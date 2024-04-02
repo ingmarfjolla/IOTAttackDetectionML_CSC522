@@ -1,0 +1,77 @@
+Starting 2 class model at:  02:16
+Importing datasets.....
+Processing training and test data....
+Finished processing training and test data
+Mapping labels to two classes.....
+Data import and processing complete....
+Using n_jobs =  32
+Training regression model......
+Testing regression model......
+Returning model predictions......
+
+
+##### Regression (2 classes) #####
+accuracy_score:  0.9888991471909904
+recall_score:  0.8888030173668666
+precision_score:  0.8619569225419003
+f1_score:  0.8748727551896816
+
+Elapsed time:  0:13:58.286849
+
+
+
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c031n03>
+Subject: Job 503094: <IoT_regression> in cluster <Hazel> Done
+
+Job <IoT_regression> was submitted from host <login03> by user <lrwilli7> in cluster <Hazel> at Thu Mar 28 02:15:55 2024
+Job was executed on host(s) <1*c031n03>, in queue <short>, as user <lrwilli7> in cluster <Hazel> at Thu Mar 28 02:15:56 2024
+                            <2*c038n01>
+                            <1*c027n02>
+</home/lrwilli7> was used as the home directory.
+</share/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts> was used as the working directory.
+Started at Thu Mar 28 02:15:56 2024
+Terminated at Thu Mar 28 02:30:18 2024
+Results reported at Thu Mar 28 02:30:18 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 4
+#BSUB -W 60
+#BSUB -J IoT_regression
+#BSUB -o regression_outputs/stdout.%J
+#BSUB -e regression_outputs/stderr.%J
+
+source ~/.bashrc
+conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_iot
+python ../regression/regression_script.py
+conda deactivate
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   815.06 sec.
+    Max Memory :                                 15 GB
+    Average Memory :                             10.10 GB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              38
+    Max Threads :                                41
+    Run time :                                   878 sec.
+    Turnaround time :                            863 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <regression_outputs/stderr.503094> for stderr output of this job.
+
