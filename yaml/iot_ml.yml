@@ -1,0 +1,15 @@
+name: iot_ml
+channels:
+ - defaults
+ - conda-forge
+dependencies:
+ - scikit-learn
+ - matplotlib
+ - numpy
+ - pandas
+ - scipy 
+ - tqdm
+ - memory_profiler
+ - seaborn
+ - tensorflow
+ - jupyter
