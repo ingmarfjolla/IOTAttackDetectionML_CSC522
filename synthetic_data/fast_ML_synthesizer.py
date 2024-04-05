@@ -48,5 +48,5 @@ def get_synthesizer():
     fast_synthesizer.fit(train) 
     filepath = "synthesizer_pickles/FML_synthesizer.pkl"
     fast_synthesizer.save(filepath=filepath)
-    return fast_synthesizer
+    return fast_synthesizer, test
 
