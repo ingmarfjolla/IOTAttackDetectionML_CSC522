@@ -1,11 +1,11 @@
 #!/bin/bash
-#BSUB -n 8
-#BSUB -W 60
+#BSUB -n 1
+#BSUB -W 15:00
 #BSUB -J IoT_regression
 #BSUB -o regression_outputs/stdout.%J
 #BSUB -e regression_outputs/stderr.%J
 
 source ~/.bashrc
-conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_iot
-python ../regression/regression_script.py
+conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_synth
+python ../synthetic_data/synth_regression.py
 conda deactivate
