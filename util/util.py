@@ -117,19 +117,16 @@ dict_7classes['DictionaryBruteForce'] = 'BruteForce'
 
 
 # @profile
-def import_dataset(numclasses=34,modeltype="regression",use_subset=False,subset_frac=1.0):
+def import_dataset(numclasses=34,modeltype="regression",subset_frac=1.0):
     print("Importing datasets.....")
-    if (use_subset):
-        df_sets_generator = (k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv'))
-        subset_size = int(len(os.listdir(DATASET_DIRECTORY)) * subset_frac)
-        df_sets = []
-        for _ in range(subset_size):
-            try:
-                df_sets.append(next(df_sets_generator))
-            except StopIteration:
-                break
-    else:
-        df_sets = [k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv')]
+    df_sets_generator = (k for k in os.listdir(DATASET_DIRECTORY) if k.endswith('.csv'))
+    subset_size = int(len(os.listdir(DATASET_DIRECTORY)) * subset_frac)
+    df_sets = []
+    for _ in range(subset_size):
+        try:
+            df_sets.append(next(df_sets_generator))
+        except StopIteration:
+            break
     df_sets.sort()
     training_sets = df_sets[:int(len(df_sets)*.8)]
     test_sets = df_sets[int(len(df_sets)*.8):]
