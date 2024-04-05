@@ -39,7 +39,7 @@ def get_metadata(train):
 
 def get_synthesizer():
     # train/test split, get metadata for train
-    train, test = util.import_dataset(subset_frac=.02)
+    train, test = util.import_dataset()
     metadata = get_metadata(train)
 
 
