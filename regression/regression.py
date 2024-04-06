@@ -33,63 +33,12 @@ def train_test_logistic_regression(train,test):
     return preds,y_test
 
 
-
-# # Regression with 2 classes
-
-# In[3]:
-
-
-train,test = util.import_dataset(2)
-y_pred, y_test = train_test_logistic_regression(train,test)
-print(f"##### Regression (2 classes) #####")
-print('accuracy_score: ', accuracy_score(y_pred, y_test))
-print('recall_score: ', recall_score(y_pred, y_test, average='macro'))
-print('precision_score: ', precision_score(y_pred, y_test, average='macro'))
-print('f1_score: ', f1_score(y_pred, y_test, average='macro'))
-print()
-print()
-print()
-del train,test,y_pred,y_test
-
-
-# # Regression with 7 classes
-
-# In[4]:
-
-
-train,test = util.import_dataset(7)
-y_pred, y_test = train_test_logistic_regression(train,test)
-print(f"##### Regression (2 classes) #####")
-print('accuracy_score: ', accuracy_score(y_pred, y_test))
-print('recall_score: ', recall_score(y_pred, y_test, average='macro'))
-print('precision_score: ', precision_score(y_pred, y_test, average='macro'))
-print('f1_score: ', f1_score(y_pred, y_test, average='macro'))
-print()
-print()
-print()
-del train,test,y_pred,y_test
-
-
-# # Regression with 34 classes
-
-# In[ ]:
-
-
-
-
-
-# In[4]:
-
-
-train,test = util.import_dataset()
-y_pred, y_test = train_test_logistic_regression(train,test)
-print(f"##### Regression (2 classes) #####")
-print('accuracy_score: ', accuracy_score(y_pred, y_test))
-print('recall_score: ', recall_score(y_pred, y_test, average='macro'))
-print('precision_score: ', precision_score(y_pred, y_test, average='macro'))
-print('f1_score: ', f1_score(y_pred, y_test, average='macro'))
-print()
-print()
-print()
-del train,test,y_pred,y_test
-
+def print_scores(y_pred, y_test):
+    print('accuracy_score: ', accuracy_score(y_pred, y_test))
+    print('recall_score: ', recall_score(y_pred, y_test, average='macro'))
+    print('precision_score: ', precision_score(y_pred, y_test, average='macro'))
+    print('f1_score: ', f1_score(y_pred, y_test, average='macro'))
+    print()
+    print()
+    print()   
+    
