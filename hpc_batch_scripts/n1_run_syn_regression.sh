@@ -1,6 +1,5 @@
 #!/bin/bash
-#BSUB -n 16
-#BSUB -R span[hosts=1]
+#BSUB -n 1
 #BSUB -W 15:00
 #BSUB -J IoT_regression
 #BSUB -R "rusage[mem=128]"
