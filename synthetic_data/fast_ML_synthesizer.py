@@ -46,7 +46,11 @@ def get_synthesizer():
     # make and fit fast synthesizer
     fast_synthesizer = SingleTablePreset(metadata, name='FAST_ML')
     fast_synthesizer.fit(train) 
-    filepath = "synthesizer_pickles/FML_synthesizer.pkl"
-    fast_synthesizer.save(filepath=filepath)
+    filename = 'FML_synthesizer.pkl'
+    try: 
+        fast_synthesizer.save(filepath=filename)
+    except Exception as e:
+        print(f"Error occurred while saving file: {e}")
+    del train
     return fast_synthesizer, test
 
