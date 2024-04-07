@@ -8,5 +8,5 @@
 
 source ~/.bashrc
 conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_synth
-python ../synthetic_data/CGsynth_regression.py
+python ../synthetic_data/GCsynth_regression.py
 conda deactivate
