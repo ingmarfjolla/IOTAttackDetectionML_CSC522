@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-import synthetic_data.synthesizer as synthesizer
+import synthesizer as synthesizer
 import sys
 sys.path.append( '../regression')
 import regression as regression
