@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../synthetic_data/synth_regression.py", line 7, in <module>
+    import fast_ML_synthesizer
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/synthetic_data/fast_ML_synthesizer.py", line 9, in <module>
+    import util as util
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../util/util.py", line 8, in <module>
+    from memory_profiler import profile
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/memory_profiler.py", line 10, in <module>
+    from asyncio import coroutine, iscoroutinefunction
+ImportError: cannot import name 'coroutine' from 'asyncio' (/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/asyncio/__init__.py)

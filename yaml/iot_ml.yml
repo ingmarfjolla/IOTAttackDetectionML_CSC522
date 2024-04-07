@@ -13,3 +13,4 @@ dependencies:
  - seaborn
  - tensorflow
  - jupyter
+ - sdv

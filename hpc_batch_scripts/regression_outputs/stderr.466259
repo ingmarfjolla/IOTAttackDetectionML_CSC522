@@ -1,0 +1,43 @@
+/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+Traceback (most recent call last):
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../synthetic_data/synth_regression.py", line 10, in <module>
+    import regression as regression
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../regression/regression.py", line 85, in <module>
+    y_pred, y_test = train_test_logistic_regression(train,test)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../regression/regression.py", line 29, in train_test_logistic_regression
+    model.fit(train[util.X_columns],train[util.y_column])
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sklearn/linear_model/_logistic.py", line 1291, in fit
+    fold_coefs_ = Parallel(n_jobs=self.n_jobs, verbose=self.verbose, prefer=prefer)(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sklearn/utils/parallel.py", line 63, in __call__
+    return super().__call__(iterable_with_config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/joblib/parallel.py", line 1098, in __call__
+    self.retrieve()
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/joblib/parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/joblib/_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/concurrent/futures/_base.py", line 451, in result
+    self._condition.wait(timeout)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+KeyboardInterrupt

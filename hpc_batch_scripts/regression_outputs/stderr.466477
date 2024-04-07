@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../synthetic_data/synth_regression.py", line 16, in <module>
+    synthesizer, test = fast_ML_synthesizer.get_synthesizer()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/synthetic_data/fast_ML_synthesizer.py", line 50, in get_synthesizer
+    fast_synthesizer.save(filepath=filepath)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/lite/single_table.py", line 182, in save
+    with open(filepath, 'wb') as output:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'synthesizer_pickles/FML_synthesizer.pkl'
