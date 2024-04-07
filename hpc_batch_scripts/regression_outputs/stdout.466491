@@ -1,0 +1,112 @@
+Importing datasets.....
+Processing training and test data....
+Finished processing training and test data
+Data import and processing complete....
+
+METADATA:
+METADATA_SPEC_VERSION SINGLE_TABLE_V1
+columns {'flow_duration': {'sdtype': 'numerical'}, 'Header_Length': {'sdtype': 'numerical'}, 'Protocol Type': {'sdtype': 'numerical'}, 'Duration': {'sdtype': 'numerical'}, 'Rate': {'sdtype': 'numerical'}, 'Srate': {'sdtype': 'numerical'}, 'Drate': {'sdtype': 'numerical'}, 'fin_flag_number': {'sdtype': 'numerical'}, 'syn_flag_number': {'sdtype': 'numerical'}, 'rst_flag_number': {'sdtype': 'numerical'}, 'psh_flag_number': {'sdtype': 'numerical'}, 'ack_flag_number': {'sdtype': 'numerical'}, 'ece_flag_number': {'sdtype': 'numerical'}, 'cwr_flag_number': {'sdtype': 'numerical'}, 'ack_count': {'sdtype': 'numerical'}, 'syn_count': {'sdtype': 'numerical'}, 'fin_count': {'sdtype': 'numerical'}, 'urg_count': {'sdtype': 'numerical'}, 'rst_count': {'sdtype': 'numerical'}, 'HTTP': {'sdtype': 'categorical'}, 'HTTPS': {'sdtype': 'categorical'}, 'DNS': {'sdtype': 'categorical'}, 'Telnet': {'sdtype': 'categorical'}, 'SMTP': {'sdtype': 'categorical'}, 'SSH': {'sdtype': 'categorical'}, 'IRC': {'sdtype': 'categorical'}, 'TCP': {'sdtype': 'categorical'}, 'UDP': {'sdtype': 'categorical'}, 'DHCP': {'sdtype': 'categorical'}, 'ARP': {'sdtype': 'categorical'}, 'ICMP': {'sdtype': 'categorical'}, 'IPv': {'sdtype': 'categorical'}, 'LLC': {'sdtype': 'categorical'}, 'Tot sum': {'sdtype': 'numerical'}, 'Min': {'sdtype': 'numerical'}, 'Max': {'sdtype': 'numerical'}, 'AVG': {'sdtype': 'numerical'}, 'Std': {'sdtype': 'numerical'}, 'Tot size': {'sdtype': 'numerical'}, 'IAT': {'sdtype': 'numerical'}, 'Number': {'sdtype': 'numerical'}, 'Magnitue': {'sdtype': 'numerical'}, 'Radius': {'sdtype': 'numerical'}, 'Covariance': {'sdtype': 'numerical'}, 'Variance': {'sdtype': 'numerical'}, 'Weight': {'sdtype': 'numerical'}, 'label': {'sdtype': 'categorical'}}
+
+COLUMNS:
+flow_duration: numerical
+Header_Length: numerical
+Protocol Type: numerical
+Duration: numerical
+Rate: numerical
+Srate: numerical
+Drate: numerical
+fin_flag_number: numerical
+syn_flag_number: numerical
+rst_flag_number: numerical
+psh_flag_number: numerical
+ack_flag_number: numerical
+ece_flag_number: numerical
+cwr_flag_number: numerical
+ack_count: numerical
+syn_count: numerical
+fin_count: numerical
+urg_count: numerical
+rst_count: numerical
+HTTP: categorical
+HTTPS: categorical
+DNS: categorical
+Telnet: categorical
+SMTP: categorical
+SSH: categorical
+IRC: categorical
+TCP: categorical
+UDP: categorical
+DHCP: categorical
+ARP: categorical
+ICMP: categorical
+IPv: categorical
+LLC: categorical
+Tot sum: numerical
+Min: numerical
+Max: numerical
+AVG: numerical
+Std: numerical
+Tot size: numerical
+IAT: numerical
+Number: numerical
+Magnitue: numerical
+Radius: numerical
+Covariance: numerical
+Variance: numerical
+Weight: numerical
+label: categorical
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c013n02>
+Subject: Job 466491: <IoT_regression> in cluster <Hazel> Done
+
+Job <IoT_regression> was submitted from host <login04> by user <lrwilli7> in cluster <Hazel> at Sat Apr  6 04:32:32 2024
+Job was executed on host(s) <16*c013n02>, in queue <single_chassis>, as user <lrwilli7> in cluster <Hazel> at Sat Apr  6 04:32:32 2024
+</home/lrwilli7> was used as the home directory.
+</share/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts> was used as the working directory.
+Started at Sat Apr  6 04:32:32 2024
+Terminated at Sat Apr  6 06:34:14 2024
+Results reported at Sat Apr  6 06:34:14 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 16
+#BSUB -R span[hosts=1]
+#BSUB -W 15:00
+#BSUB -J IoT_regression
+#BSUB -R "rusage[mem=128]"
+#BSUB -o regression_outputs/stdout.%J
+#BSUB -e regression_outputs/stderr.%J
+
+source ~/.bashrc
+conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_synth
+python ../synthetic_data/synth_regression.py
+conda deactivate
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   6657.67 sec.
+    Max Memory :                                 128 GB
+    Average Memory :                             36.21 GB
+    Total Requested Memory :                     128.00 GB
+    Delta Memory :                               0.00 GB
+    Max Swap :                                   15 GB
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   7302 sec.
+    Turnaround time :                            7302 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <regression_outputs/stderr.466491> for stderr output of this job.
+

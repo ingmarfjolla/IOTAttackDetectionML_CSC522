@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../synthetic_data/synth_regression.py", line 17, in <module>
+    baseline_set = synthesizer.sample(num_rows=38000000, batch_size=1000, output_file_path='synthetic_datasets/FML_baseline_set.csv')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/lite/single_table.py", line 104, in sample
+    sampled = self._synthesizer.sample(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/base.py", line 800, in sample
+    return self._sample_with_progress_bar(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/base.py", line 755, in _sample_with_progress_bar
+    output_file_path = validate_file_path(output_file_path)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/utils.py", line 182, in validate_file_path
+    with open(output_path, 'w+'):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/synthetic_datasets/FML_baseline_set.csv'

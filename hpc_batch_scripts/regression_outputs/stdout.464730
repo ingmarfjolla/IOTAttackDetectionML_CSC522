@@ -1,0 +1,91 @@
+Importing datasets.....
+Processing training and test data....
+Finished processing training and test data
+Mapping labels to two classes.....
+Data import and processing complete....
+Training regression model......
+Testing regression model......
+Returning model predictions......
+##### Regression (2 classes) #####
+accuracy_score:  0.988741471240148
+recall_score:  0.8861685488367037
+precision_score:  0.8616781291873743
+f1_score:  0.8734994553214639
+
+
+
+Importing datasets.....
+Processing training and test data....
+Finished processing training and test data
+Mapping labels to seven classes.....
+Data import and processing complete....
+Training regression model......
+Testing regression model......
+Returning model predictions......
+##### Regression (2 classes) #####
+accuracy_score:  0.831207947342406
+recall_score:  0.6089747574086017
+precision_score:  0.49348100257697347
+f1_score:  0.5061154702633845
+
+
+
+Importing datasets.....
+Processing training and test data....
+Finished processing training and test data
+Data import and processing complete....
+Training regression model......
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c201n14>
+Subject: Job 464730: <IoT_regression> in cluster <Hazel> Exited
+
+Job <IoT_regression> was submitted from host <login04> by user <lrwilli7> in cluster <Hazel> at Fri Apr  5 17:53:38 2024
+Job was executed on host(s) <c201n14>, in queue <serial>, as user <lrwilli7> in cluster <Hazel> at Fri Apr  5 17:53:39 2024
+</home/lrwilli7> was used as the home directory.
+</share/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts> was used as the working directory.
+Started at Fri Apr  5 17:53:39 2024
+Terminated at Fri Apr  5 19:24:48 2024
+Results reported at Fri Apr  5 19:24:48 2024
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#BSUB -n 1
+#BSUB -W 15:00
+#BSUB -J IoT_regression
+#BSUB -o regression_outputs/stdout.%J
+#BSUB -e regression_outputs/stderr.%J
+
+source ~/.bashrc
+conda activate /usr/local/usrapps/csc522s24/lrwilli7/env_synth
+python ../synthetic_data/synth_regression.py
+conda deactivate
+------------------------------------------------------------
+
+TERM_OWNER: job killed by owner.
+Exited with exit code 130.
+
+Resource usage summary:
+
+    CPU time :                                   5371.00 sec.
+    Max Memory :                                 43 GB
+    Average Memory :                             25.63 GB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   10 GB
+    Max Processes :                              30
+    Max Threads :                                33
+    Run time :                                   5470 sec.
+    Turnaround time :                            5470 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <regression_outputs/stderr.464730> for stderr output of this job.
+

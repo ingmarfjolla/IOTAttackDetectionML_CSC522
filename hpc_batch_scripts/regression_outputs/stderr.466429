@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/hpc_batch_scripts/../synthetic_data/synth_regression.py", line 16, in <module>
+    synthesizer, test = fast_ML_synthesizer.get_synthesizer()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/gpfs_common/share02/csc522s24/lrwilli7/IOTAttackDetectionML_CSC522/synthetic_data/fast_ML_synthesizer.py", line 48, in get_synthesizer
+    fast_synthesizer.fit(train) 
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/lite/single_table.py", line 84, in fit
+    self._synthesizer.fit(data)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/base.py", line 405, in fit
+    self.fit_processed_data(processed_data)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/base.py", line 386, in fit_processed_data
+    self._fit(processed_data)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/sdv/single_table/copulas.py", line 134, in _fit
+    self._model.fit(processed_data)
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/copulas/__init__.py", line 262, in decorated
+    return function(self, X, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/copulas/multivariate/gaussian.py", line 129, in fit
+    self.correlation = self._get_correlation(X)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/copulas/multivariate/gaussian.py", line 78, in _get_correlation
+    result = self._transform_to_normal(X)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/copulas/multivariate/gaussian.py", line 65, in _transform_to_normal
+    return stats.norm.ppf(np.column_stack(U))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 2246, in ppf
+    place(output, cond2, argsreduce(cond2, lower_bound)[0])
+  File "/usr/local/usrapps/csc522s24/lrwilli7/env_synth/lib/python3.11/site-packages/numpy/lib/function_base.py", line 1954, in place
+    return _place(arr, mask, vals)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 1.59 GiB for an array with shape (36346418, 47) and data type bool
