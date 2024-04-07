@@ -2,6 +2,7 @@
 #BSUB -n 1
 #BSUB -W 36:00
 #BSUB -J CTGAN
+#BSUB -R "rusage[mem=128]"
 #BSUB -q gpu
 #BSUB -gpu "num=1:mode=shared:mps=no"
 #BSUB -o dnn_outputs/stdout.%J
