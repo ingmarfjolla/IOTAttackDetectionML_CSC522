@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-import fast_ML_synthesizer
+import synthetic_data.synthesizer as synthesizer
 import sys
 sys.path.append( '../regression')
 import regression as regression
@@ -13,7 +13,7 @@ import regression as regression
 # In[ ]:
 
 
-synthesizer, test = fast_ML_synthesizer.get_synthesizer()
+synthesizer, test = synthesizer.get_synthesizer()
 baseline_set = synthesizer.sample(num_rows=38000000, batch_size=1000, output_file_path='../synthetic_data/synthetic_datasets/FML_baseline_set.csv')
 
 y_pred, y_test = regression.train_test_logistic_regression(baseline_set, test)

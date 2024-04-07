@@ -9,6 +9,7 @@ sys.path.append( '../util' )
 import util as util
 from sdv.metadata import SingleTableMetadata
 from sdv.lite import SingleTablePreset
+from sdv.single_table import GaussianCopulaSynthesizer, CTGANSynthesizer
 
 
 # In[2]:
@@ -37,20 +38,33 @@ def get_metadata(train):
 # In[5]:
 
 
-def get_synthesizer():
+def get_synthesizer(stype, name):
     # train/test split, get metadata for train
     train, test = util.import_dataset()
     metadata = get_metadata(train)
+    synthesizer = None
+    filepath = "../synthetic_data/synthesizer_pickles/" + name
 
 
-    # make and fit fast synthesizer
-    fast_synthesizer = SingleTablePreset(metadata, name='FAST_ML')
-    fast_synthesizer.fit(train) 
-    filename = "../synthetic_data/synthesizer_pickles/FML_synthesizer.pkl"
+    if stype == "fml":
+        # make and fit fast synthesizer
+        synthesizer = SingleTablePreset(metadata, name='FAST_ML')
+        synthesizer.fit(train) 
+
+    elif stype == "gcs":
+        synthesizer = GaussianCopulaSynthesizer(metadata)
+        synthesizer.fit(train)
+
+    elif stype == "gan":
+        synthesizer = CTGANSynthesizer(metadata)
+        synthesizer.fit(train)
+
+
     try: 
-        fast_synthesizer.save(filepath=filename)
+        synthesizer.save(filepath=filepath)
     except Exception as e:
         print(f"Error occurred while saving file: {e}")
     del train
-    return fast_synthesizer, test
+    
+    return synthesizer, test
 
