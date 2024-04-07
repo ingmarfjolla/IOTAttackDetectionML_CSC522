@@ -4,15 +4,17 @@ import sys
 sys.path.append( '../util' )
 import util as util
 from sklearn.preprocessing import LabelEncoder
-# import pdb; 
-labelencoder = LabelEncoder()
+
 
 discrete_columns = [util.y_column, 'HTTP', 'HTTPS', 'DNS', 'Telnet', 'SMTP', 'SSH', 'IRC', 
                     'TCP', 'UDP', 'DHCP', 'ARP', 'ICMP', 'IPv', 'LLC']
 
-train, test = util.import_dataset(7,"dnn",True,.1)
-train[discrete_columns] = labelencoder.fit_transform(discrete_columns)
+train, test = util.import_dataset(7,"dnn",True,.02)
 
+for column in discrete_columns:
+    le = LabelEncoder()
+    train[column] = le.fit_transform(train[column])
+    print(train[column].unique())
 
 ctgan = CTGAN(epochs=1,verbose=True)
 print("Starting to train models...")
