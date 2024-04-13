@@ -115,6 +115,22 @@ dict_7classes['CommandInjection'] = 'Web'
 dict_7classes['DictionaryBruteForce'] = 'BruteForce'
 
 
+# @profile
+def encode_column(encode_column, num_classes, class_type):
+    
+    valid_classes = {2, 7}
+
+    if num_classes not in valid_classes:
+        return ValueError(f"Result: num_classes must be one of {valid_classes}")
+    
+    if num_classes == 2:
+        encode_column = encode_column.map(dict_2classes).astype(class_type)
+
+    if num_classes == 7:
+        encode_column = encode_column.map(dict_7classes).astype(class_type)
+
+    return encode_column
+
 
 # @profile
 def import_dataset(numclasses=34,modeltype="regression",subset_frac=1.0):
@@ -137,15 +153,19 @@ def import_dataset(numclasses=34,modeltype="regression",subset_frac=1.0):
     print("Finished processing training and test data")
     if numclasses == 2:
         print("Mapping labels to two classes.....")
-        train[y_column] = train[y_column].map(dict_2classes).astype('category')
+        # train[y_column] = train[y_column].map(dict_2classes).astype('category')
+        train[y_column] = encode_column(encode_column = train[y_column], num_classes = 2, class_type = 'category')
         # print(train[y_column].cat.categories)
-        test[y_column] = test[y_column].map(dict_2classes).astype('category')
+        # test[y_column] = test[y_column].map(dict_2classes).astype('category')
+        test[y_column] = encode_column(encode_column = test[y_column], num_classes = 2, class_type = 'category')
 
     if numclasses == 7:
         print("Mapping labels to seven classes.....")
-        train[y_column] = train[y_column].map(dict_7classes).astype('category')
+        # train[y_column] = train[y_column].map(dict_7classes).astype('category')
+        train[y_column] = encode_column(encode_column = train[y_column], num_classes = 7, class_type = 'category')
         # print(train[y_column].cat.categories)
-        test[y_column] = test[y_column].map(dict_7classes).astype('category')
+        # test[y_column] = test[y_column].map(dict_7classes).astype('category')
+        test[y_column] = encode_column(encode_column = test[y_column], num_classes = 7, class_type = 'category')
     print("Data import and processing complete....")
     return train,test
 
