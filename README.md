@@ -17,4 +17,4 @@ Each directory in this project serves a different purpose and we made it as modu
 - [synthetic_data](/synthetic_data/) contains a notebook and python files related to training a Gaussian Copula model for generating synthetic data along with the synthesizer in [/synthetic_data/synthesizer_pickles/](/synthetic_data/synthesizer_pickles/)
 - [util](/util/) has utilities that each of the models use to load, and scale our data. It handles the 2/7/34 class transformation and takes an argument to serve different sample sizes. The notebooks and python files throughout our repo show different usage examples. 
 - [yaml](/yaml/) has the necessary dependencies in yaml format for the HPC cluster (and can be used locally if using anaconda). 
-  
+- [model_serving](/model_serving/) has a compose file with our model in the saved model format so you can run inference using the neural network. 
